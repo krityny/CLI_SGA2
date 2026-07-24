@@ -1,1 +1,16 @@
-1. Command:
+1. Command: vi fileProcessing.c
+Explanation: Creates and opens fileProcessing.c file.
+
+2. command: gcc fileProcessing.c
+Explanation: compiles the C program
+
+3.command: ./a.out
+Explanation: This is the compiled C program. Running this command executes the file.
+
+Explanation of File handling commands:
+open(): Creates and opens the specified file in read and write mode.
+write(): Stores the entered employee records into the file.
+lseek(): This system call moves the file pointer to the specified location of the file for updating or reading the records.
+read(): Used to retrieve the records from the file.
+close(): closes the file and releases the resoures used.
+Using these system call, we can efficiently write,  read and update records and also close the file.
