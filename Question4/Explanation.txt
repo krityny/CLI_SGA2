@@ -1,1 +1,17 @@
 1. Command: 
+vi monitor_log.sh
+Explanation: creates and opens the monitor_log file.
+
+2. Command:
+chmod +x monitor_log.sh
+Explanation: This changes the file permission to make it executable.
+touch system.log 
+Explanation: Creates the file system.log
+
+3. Command: ./monitor_log.sh
+Explanation: Runs the monitor_log file, starting the system monitor in one terminal. This pipeline stays active and watches the system.log.
+
+4. Command: 
+
+
+
