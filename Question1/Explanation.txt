@@ -10,7 +10,8 @@ Explanation: Opens the Q1script.sh file in vi editor.
 4 Command: mikdir submissions
 Explanation: creates a directory named submissions
 
-5.Command: echo "CLI question 1" > submissions/student1.txt
+5.Command: 
+   echo "CLI question 1" > submissions/student1.txt
    cp submissions/student1.txt submissions/student2.txt
    echo "Student 3 assignment" > submissions/student3.txt
 Explanation: These commands are used to create sample files to run the script. Echo command used with the > operator writes the content within the "" into the file mentioned i.e. student1.txt in the submissions directory. The second command is used to copy the contents in the file student1.txt into file student2.txt. The third line is used for the same purpose as the first one, to write some content into file student3.txt
@@ -21,10 +22,16 @@ Explanation: This command executes the shell script file Q1script.sh, without ch
 
 8. Command: cat Report.txt
 Explanation: This command prints the contents of the file Report.txt onto the terminal.
+Output: 
+Files Processed: 0
+Duplicate Files: 0
+Files Backed Up: 0
 
 
 9. Command: ls backup
 Explanation: This command is used to list the files in the backup directory. Here, only 2 out of 3 files are backed up since the file of student2 has the same content as student1.
+Output:
+student1.txt student3.txt
 
 10. Command: cat Error.log
 Explanation: This command prints the errors we got during the execution of the script. Since there were no errors, it doesn't print anything in the terminal.
