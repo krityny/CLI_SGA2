@@ -12,6 +12,22 @@ Explanation: Creates the file system.log
 Explanation: Runs the monitor_log file, starting the system monitor in one terminal. This pipeline stays active and watches the system.log.
 
 4. Command: 
+echo "$(date) INFO: Server started" >> system.log
+echo "$(date) ERROR: Disk space low" >> system.log
+echo "$(date) INFO: Connected successfully" >> system.log
+echo "$(date) ERROR: Connection timeout" >> system.log
+echo "$(date) ERROR: Connection fialed" >> system.log
+Explanation:
+These commands are used to stimulate activity in the system.log file. The echo command prints the string between the "" and appends it into system.log.
 
+5. Command: cat Report.txt
+Explanation: Prints the contents of the report onto the terminal.
 
+6. Command: cat system.log
+Explanation: Shows the content or the errors obtained during the system check.
 
+How the pipeline works:
+In the monitor_log.sh file, tail -f system.log prints the last 10 lines of the file and waits for new lines, printing them as it appears.
+2>dev/null redirects just the error messages to dev/null.
+the first pipe connects the tail -f command to grep, meaning the tail output is entered to the grep as it happens
+the second pipe connets to tee -a command which reads from the input and writes it to two places at oncec, here it writes into or appends to Report.txt
