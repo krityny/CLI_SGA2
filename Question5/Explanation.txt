@@ -1,1 +1,28 @@
+Recovery Mechanisms in VI editor:
+1. Swap file: Stores the unsaved changes while editing that can be used for crash recovery.
+2. Undo History: This reverses the most recent edits in current session.
+3. Registers: Temporarily stores the copied or deleted text that can be retrieved later.
+4. Backup Files: This saves a copy of the file before the last write is backup is enabled.
+5. Auto Recovery: Automatically checks for a swap file when reopening a file to restore incase of a possible crash.
+
+The most reliable recovery strategy would be using the swap file and auto recovery. Normally opening the file or using vi -r with filename detects the swap file for recovery.
+Once the file is recovered, it can be saved using :wq then remove the old .swp file. Regular manual saves can save us from data loss.
+
+Commands used:
 1. Command:
+vi crash.conf
+Explanation: create a configuration file.
+
+2. Command:
+ls -la
+Explanation: give a detailed list of files in current directory including hidden files.
+output: 
+total 24
+drwxrwxrwx+ 2 codespace codespace  4096 Jul 24 14:34 .
+drwxrwxrwx+ 8 codespace root       4096 Jul 24 14:05 ..
+-rw-------  1 codespace codespace 12288 Jul 24 14:33 .crash.conf.swp
+-rw-rw-rw-  1 codespace codespace    12 Jul 24 14:05 Explanation.txt
+
+3. Command: 
+vi -r crash.conf
+Explanation: Restores the latest unsaved configuration file from the swap file.
