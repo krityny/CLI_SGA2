@@ -1,1 +1,23 @@
 1. Command: 
+vi childPro.c
+Explanation: Creates and opens childPro.c file in vi editor
+
+2. Command: 
+gcc childPro.c -o childPro
+Explanation: gcc command compiles the childPro.c file. -o is used to specify the compiled file name as given.
+
+3. Command: 
+./childPro 
+Explanation: This command executes the C program.
+
+Explanation of the program:
+In the program, we first need to include unistd.h to use linux system calls, stdlib.h for utility functions, sys/wait.h for wait() and waitpid()
+functions and signal.h for the signal handling.
+Once the program begins, fork() creates a new child process that handles a separate task allowing the server to serve multiple clients without 
+blocking the parent process. The parent process creates and moniters the child processes.
+Waitpid() checks if the child process is still running or has finished. WNOHANG allows parent to continue running without waiting for the child 
+process to finish.
+Signal handling: The kill(pid[i], SIGKILL); is used to terminate the specific child that is unresponsive. This prevents faulty processes from 
+comsuming CPU memory.
+Once the child process finishes, it becomes a zombie process till the parent collects its exit status. To prevent zombie processes, we use waitpid(pid[i], &status, 0);. this removies the terminated child processes from the process table.
+Doing this, the server doesn't have any resources used by unnecessary processes and remains responsive.
